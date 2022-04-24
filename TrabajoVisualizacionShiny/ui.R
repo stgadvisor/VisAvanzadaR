@@ -26,7 +26,7 @@ shinyUI(
                         h1("Trabajo del modulo de visualización avanzada", align = "center"),
                         h1("UNED - Máster Big Data 2022", align = "center"),
                         h2("Ricardo Hidalgo Aragón", align = "center"),
-                        h3("Conjunto de graficas disponibles:", 
+                        h3("Conjunto de graficas disponibles sobre datos descargados en tiempo real:", 
                            align = "left"),
                         p(""),
                         h4("* El impacto del precio según las fuentes renovables y no renovables con las que se esta produciendo energía en el sistema eléctrica Español, semanal o mensual."),
