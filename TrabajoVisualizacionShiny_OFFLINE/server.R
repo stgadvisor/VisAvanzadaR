@@ -17,10 +17,10 @@ library(dplyr)
 
 #Generar datos auxiliares
 dia_0<-"2022-01-01T00:00"
-dia_now<-"2022-04-22T00:00"
-dia_ayer<-"2022-04-21T00:00"
-dia_menossemana <- "2022-04-14T00:00"
-dia_menosmes <- "2022-03-24T00:00"
+dia_now<-"2022-04-25T00:00"
+dia_ayer<-"2022-04-24T00:00"
+dia_menossemana <- "2022-04-17T00:00"
+dia_menosmes <- "2022-03-26T00:00"
 
 
 #Carga del dataset previamente descargado y transformado
@@ -39,15 +39,21 @@ shinyServer(function(input, output) {
       
       if (input$periodo == 'mes'){
         # Ajustamos los datos al periodo temporal - ETL datos para visualización según rango elegido
-        d_dia <- DatosMercadosPrecio[["included"]][["attributes"]][["values"]][[1]] %>% select ("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date(dia_ayer)))
-        gen_ren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[1]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date(dia_ayer)))
-        gen_NOren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[2]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date(dia_ayer)))
+        # d_dia <- DatosMercadosPrecio[["included"]][["attributes"]][["values"]][[1]] %>% select ("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date(dia_ayer)))
+        # gen_ren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[1]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date(dia_ayer)))
+        # gen_NOren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[2]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date(dia_ayer)))
+        d_dia <- DatosMercadosPrecio[["included"]][["attributes"]][["values"]][[1]] %>% select ("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date("2022-04-22")))
+        gen_ren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[1]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date("2022-04-22")))
+        gen_NOren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[2]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menosmes),as.Date("2022-04-22")))        
       }
       if (input$periodo == 'semana'){
         # Ajustamos los datos al periodo temporal - ETL datos para visualización según rango elegido
-        d_dia <- DatosMercadosPrecio[["included"]][["attributes"]][["values"]][[1]] %>% select ("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date(dia_ayer)))
-        gen_ren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[1]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date(dia_ayer)))
-        gen_NOren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[2]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date(dia_ayer)))
+        # d_dia <- DatosMercadosPrecio[["included"]][["attributes"]][["values"]][[1]] %>% select ("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date(dia_ayer)))
+        # gen_ren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[1]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date(dia_ayer)))
+        # gen_NOren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[2]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date(dia_ayer)))
+        d_dia <- DatosMercadosPrecio[["included"]][["attributes"]][["values"]][[1]] %>% select ("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date("2022-04-22")))
+        gen_ren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[1]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date("2022-04-22")))
+        gen_NOren <- DatosGeneracionRenoYno[["included"]][["attributes"]][["values"]][[2]] %>% select("value", "datetime") %>% filter(between(as.Date(datetime), as.Date(dia_menossemana),as.Date("2022-04-22")))        
       }
 
       #crear df renovable y no renovable frente a media de precios diarios
