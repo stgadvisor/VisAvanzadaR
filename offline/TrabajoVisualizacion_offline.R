@@ -11,9 +11,9 @@ library(ggmosaic)
 
 #Generar datos auxiliares
 dia_0<-"2022-01-01T00:00"
-dia_now<-as.character(format(Sys.Date(), "%Y-%m-%dT%H:%M")) # Devuelve en formato: aaaa-dd-mmThh (hh/mm son horas/minutos en número decimal)
-dia_ayer<-format(as.Date(Sys.Date(), "%Y-%m-%dT%H:%M")-1, "%Y-%m-%dT%H:%M")
-dia_menossemana <- format(as.Date(Sys.Date(), "%Y-%m-%dT%H:%M")-8, "%Y-%m-%dT%H:%M")
+dia_now<-"2022-04-25T00:00"
+dia_ayer<-"2022-04-24T00:00"
+dia_menossemana <- "2022-04-17T00:00"
 
 #Carga del dataset previamente descargado y transformado
 #Fuente de datos:=> REE: https://www.ree.es/es/apidatos#request
@@ -43,11 +43,11 @@ gen_ren <- gen_ren$value/1000
 gen_NOren <- gen_NOren$value/1000
 
 # 24/04/2022 La API de REE no esta respondiendo correctamente, por lo que se cargan los datos offline
-# df_preciosXtec <- data.frame(d_dia_media, # Datos Fecha
-#                              gen_ren,  # Datos Renovables
-#                              gen_NOren # Datos No Renovables
-#                              )
-load("df_preciosXtec.rda")
+df_preciosXtec <- data.frame(d_dia_media, # Datos Fecha
+                             gen_ren,  # Datos Renovables
+                             gen_NOren # Datos No Renovables
+                             )
+#load("df_preciosXtec.rda")
 
 ### GRAFICO RENOV/NO vs PRECIO
 b <- ggplot(df_preciosXtec, aes(x=fecha)) + 
