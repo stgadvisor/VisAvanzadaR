@@ -5,7 +5,7 @@ account: stgadvisor
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6149135
-bundleId: 5825929
+bundleId: 5954566
 url: https://stgadvisor.shinyapps.io/trabajovisualizacionshiny/
-when: 1650627661.96479
-lastSyncTime: 1650627661.96479
+when: 1653733400.08691
+lastSyncTime: 1653733400.08691
