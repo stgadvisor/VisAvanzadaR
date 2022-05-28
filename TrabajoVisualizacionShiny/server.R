@@ -101,7 +101,8 @@ shinyServer(function(input, output) {
 
       #Visualización      
       a <- ggplot(d_demanda,
-                  aes(datetime, value)) + 
+                  aes(datetime, value, group = 1)) + 
+        geom_line() +
         geom_point(colour = "red", size = 3) +
         labs(x = "Fecha",y = "Gigawatio", title = "Demanda eléctrica en España", 
              caption = paste("Ultima actualización:",DatosDemandaEvolucion[["included"]][["attributes"]][["last-update"]])) +
