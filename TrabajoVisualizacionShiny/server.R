@@ -20,7 +20,7 @@ dia_0<-"2022-01-01T00:00"
 dia_now<-as.character(format(Sys.Date(), "%Y-%m-%dT%H:%M")) # Devuelve en formato: aaaa-dd-mmThh (hh/mm son horas/minutos en número decimal)
 dia_ayer<-format(as.Date(Sys.Date(), "%Y-%m-%dT%H:%M")-1, "%Y-%m-%dT%H:%M")
 dia_menossemana <- format(as.Date(Sys.Date(), "%Y-%m-%dT%H:%M")-8, "%Y-%m-%dT%H:%M")
-dia_menosmes <- format(as.Date(Sys.Date(), "%Y-%m-%dT%H:%M")-30, "%Y-%m-%dT%H:%M")
+dia_menosmes <- format(as.Date(Sys.Date(), "%Y-%m-%dT%H:%M")-29, "%Y-%m-%dT%H:%M")
 
 
 
